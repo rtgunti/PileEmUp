@@ -1,6 +1,8 @@
 # 98Cards
 98 Cards game implemented in Python
+
 About Game : 
+
 98 Cards - A new Single Player Card Game
 
 Your deck contains 98 cards ranging from 2 to 99.
