@@ -1,9 +1,6 @@
 import random
 
-#play=[10,20,50,60]
 play=[None]*4
-#hand = list("")
-#hand=[1,2,3,23,44,66,80,90]
 hand=list("")
 options=list("")
 deck = list("")
@@ -20,7 +17,7 @@ def initialize():
         #print(deck)
         for i in range(8):
                 hand.append(deck.pop())
-                options.append(0)
+                options.append(4)
                 #print("Popped "+str(hand[i]))
 
 def available_options():
@@ -45,23 +42,33 @@ def available_options():
                         options[hand.index(i)]+=1
                         option_enum.append(hand.index(i)*10+3)
                         #print("Card "+str(i)+" can be placed in position 3")
-        print("Enumerated options are"+ str(option_enum))
-        return sum(options)
+        return option_enum
 
 def simpleprint():
-        print("Cards in Play zone"+str(play))
-        print("Cards in Hand zone"+str(hand))
-        print("Options for Hand"+str(options))
+        print("Cards in Play zone")
+        print(str(play))
+        print("Cards in Hand zone")
+        print(str(hand))
+        print("Options for each card in Hand")
+        print(str(options))
+        print("Number of options : ")
+        print(str(len(available_options())))
+        print("Available options are")
+        print(str(available_options()))
 
 def validoption(choise):
         handindex = choise//10
         playindex = choise%10
-        if(play[playindex]==None):return True
+        if(handindex>7 or playindex>3): return False
+        elif(play[playindex]==None):return True
         elif((playindex==0 or playindex==1) and (hand[handindex]>play[playindex] or hand[handindex]==(play[playindex]-10))):return True
         elif((playindex==2 or playindex==3) and (hand[handindex]<play[playindex] or hand[handindex]==(play[playindex]+10))):return True
         else: return False
 
 def choose():
+        #End game if no options are available
+        if(len(available_options())==0):
+                return
         choise = int(input('Enter index of handzone and playzone: '))
         handindex = choise//10
         playindex = choise%10
@@ -75,28 +82,42 @@ def choose():
                 hand.remove(hand[handindex])
         else:
                 print("Invalid option. Choose again")
-                choose()
-        #End game if no options are available
-        if(available_options()==0):
-                print("Game over")
                 return
-        print("State after choosing Hand position : "+ str(handindex) +" Play position : "+ str(playindex))
-        simpleprint()
-        count = available_options()
+        #print("State after choosing Hand position : "+ str(handindex) +" Play position : "+ str(playindex))
+        #simpleprint()
+
+def chooserandom():
+        #choise = random.choises(deck)
+        choises = available_options()
+        if(len(choises)==0):
+                return
+        rand_item = choises[random.randrange(len(choises))]
+        print("Random option "+str(rand_item)+" choosen")
+        handindex = rand_item//10
+        playindex = rand_item%10
+        play[playindex]=hand[handindex]
+        options.remove(options[handindex])
+        hand.remove(hand[handindex])
+
+
 def draw():
         pop_number = deck.pop()
         hand.append(pop_number)
+        options.append(0)
         print("Added "+str(pop_number)+" to the hand")
         pop_number = deck.pop()
         hand.append(pop_number)
+        options.append(0)
         print("Added "+str(pop_number)+" to the hand")
-        print("Hand after draw")
-        simpleprint()
+        #print("Hand after draw")
+        #simpleprint()
 
 initialize()
-count = available_options()
+#count = available_options()
+while(available_options()!=[]):
+        if(len(hand)==6):draw()
+        simpleprint()
+        chooserandom()
 simpleprint()
-while(available_options()):
-        choose()
-        choose()
-        draw()
+print("Game over")
+print("Score is "+str(98-len(deck)))
