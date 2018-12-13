@@ -5,9 +5,9 @@ About Game :
 
 98 Cards - A new Single Player Card Game
 
-Your deck contains 98 cards ranging from 2 to 99.
+The deck contains 98 cards numbered from 2 to 99.
 
-Distribute all of these cards on four different piles - one after another.
+Stack these cards on four different piles - one after another.
 
 The two piles on top need to be in ascending order, the two piles at the bottom need to be in descending order.
 
