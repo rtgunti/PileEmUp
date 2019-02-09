@@ -1,13 +1,13 @@
 import random
-
-play=[None]*4
-hand=list("")
-options=list("")
-deck = list("")
-option_enum=list("")
-for i in range(1,99):
+deck = list("")         #Deck has shuffeled cards numbered from 2 to 98
+for i in range(2,99):
         deck.append(i)
 random.shuffle(deck)
+hand=list("")           #Hand Zone has 8 slots. Cards are drawn from deck and placed in Hand Zone
+play=[None]*4           #Play Zone. Cards drawn from hand are placed on board. Game starts with 4 empty slots
+options=list("")        #A list to save how many options each card from Hand Zone has. 
+option_enum=list("")    #Ennumberation of all available options. Ex: int((10*x)+y) x is hand index and y is play index
+
 #print(deck)
 #print(deck.pop())
 
@@ -16,13 +16,14 @@ def initialize():
         #hand = ["none"]*8
         #print(deck)
         for i in range(8):
-                hand.append(deck.pop())
-                options.append(4)
+                hand.append(deck.pop())         #Pop cards from deck and place in hand
+                options.append(4)               #At the beginning of the game, every card in hand has 4 options. 
                 #print("Popped "+str(hand[i]))
 
-def available_options():
-        option_enum=list("")
-        for i in range(len(hand)):
+def available_options():                        
+        option_enum=list("")                    #Reset the enum list every time
+
+        for i in range(len(hand)):              #Reset options counter to zero
                 options[i]=0
         for i in hand:
                 #print("Available options for "+str(i)+" card are ")
@@ -117,7 +118,8 @@ initialize()
 while(available_options()!=[]):
         if(len(hand)==6):draw()
         simpleprint()
-        chooserandom()
+        #choose()     		#Reads input from user
+        chooserandom()		#Randomly chooses and available option
 simpleprint()
 print("Game over")
 print("Score is "+str(98-len(deck)))
