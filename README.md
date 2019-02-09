@@ -1,14 +1,12 @@
 #Pile Em Up
 
-98 Cards game implemented in Python
-
 About Game : 
 
-98 Cards - A Single Player Card Game
+A Single Player Card Game
 
-The deck contains 98 cards numbered from 2 to 99.
+The deck contains 98 cards numbered from 2 to 99. Your hand contains 8 cards. Stack these cards on four different piles ( one after another) 
 
-Stack these cards on four different piles - one after another.
+Two random cards are drawn from the deck and added to the hand when number of cards in hand is less than 6.
 
 The two piles on top need to be in ascending order, the two piles at the bottom need to be in descending order.
 
