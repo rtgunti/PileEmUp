@@ -1,6 +1,6 @@
 #Pile Em Up
 
-A python implementation of https://play.google.com/store/apps/details?id=com.vdh.ninetyeight.android&hl=en
+A python implementation of [98 Cards](https://play.google.com/store/apps/details?id=com.vdh.ninetyeight.android&hl=en)
 
 About Game : 
 
