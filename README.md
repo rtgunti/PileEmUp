@@ -1,5 +1,7 @@
 #Pile Em Up
 
+A python implementation of https://play.google.com/store/apps/details?id=com.vdh.ninetyeight.android&hl=en
+
 About Game : 
 
 A Single Player Card Game
