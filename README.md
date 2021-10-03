@@ -1,12 +1,12 @@
-#Pile Em Up
+# Pile Em Up
 
 A python implementation of [98 Cards](https://play.google.com/store/apps/details?id=com.vdh.ninetyeight.android&hl=en)
 
-About Game : 
+About the game : 
 
 A Single Player Card Game
 
-The deck contains 98 cards numbered from 2 to 99. Your hand contains 8 cards. Stack these cards on four different piles ( one after another) 
+The deck contains 98 cards numbered from 2 to 99. Your hand contains 8 cards. Stack these cards on four different piles (one after another) 
 
 Two random cards are drawn from the deck and added to the hand when number of cards in hand is less than 6.
 
